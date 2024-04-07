@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer
+  template:
+    metadata:
+      labels:
+        app: consumer
+    spec:
+      containers:
+      - name: consumer
+        image: ragelo/weather-consumer:latest
+        env:
+        - name: KAFKA_BROKERS
+          value: "kafka-headless.kafka.svc.cluster.local:9092"
+      restartPolicy: Always

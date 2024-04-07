@@ -35,4 +35,6 @@ minikube addons enable ingress
 
 ```
 /bin/kafka-topics --create --topic weatherstation-events --bootstrap-server localhost:9092
+
+/bin/kafka-console-consumer --topic weahterstation-events --bootstrap-server localhost:9092
 ```
